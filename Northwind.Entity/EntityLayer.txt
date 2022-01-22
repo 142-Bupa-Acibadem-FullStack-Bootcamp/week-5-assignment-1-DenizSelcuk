@@ -1,0 +1,2 @@
+﻿Bu katmanda proje boyunca kullanacağımız ana classlarımızı belirliyoruz yani gerçek nesnelerimizi belirlediğimiz yer burası.
+Bu katmanı hem Data Access hem Business hemde Presentation katmanı kullanmaktadır.

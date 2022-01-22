@@ -1,0 +1,7 @@
+﻿İş Katmanı (Business/Implementation Layer)
+Sunum katmanından gelen bilgileri gerekli koşullara göre işleyerek veya denetleyerek veri katmanının sağladığı metotları 
+kullanarak veritabanına gönderen aynı şekilde veritabanından da bilgileri alarak gerekli süreçlerden geçirip presentation 
+katmanına gönderen katman. Veri katmanıyla sadece veriler uygulama ortamına çekilmiştir fakat üstünde yapılacak olan işlemler
+hala belli değildir. Bunun için çekilmiş olan verilerin yapılan uygulamaya uyarlama işlemi yerine getirilmelidir. Bu da iş katmanı
+(Business Layer) ile sağlanmaktadır. İş katmanı ile oluşturulan programa uyarlanmış veriler artık hazır hale gelmiştir.Ayrıca kullanıcı
+rolleri,yönetimi,yetkilendirmeler bu katmanda yapılan projelerin sorumluluğundadır.

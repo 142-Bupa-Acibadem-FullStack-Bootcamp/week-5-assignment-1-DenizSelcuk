@@ -1,0 +1,18 @@
+﻿Veri Katmanı(Data Katmanı)
+Veri tabanı bağlantı kodlarının bulunduğu katman. Bu katmanda genellikle her veritabanına karşılık 
+gelen veritabanı CRUD işlemlerini yapan kodlar vardır. Yani her veritabanına karşılık gelen Repository 
+classları mevcuttur. Dolayısıyla birden fazla repository bulunmasıyla beraber bir de repositoryleri tek 
+elden yönetmeyi sağlayan UnitOfWork classı bulunur. Bunlara ilaveten yapı olarak istenirse DbContext ile 
+veritabanına bağlanan sınıf da bu katmanda ele alınabilir.  Bu katmanda yazılan veri erişim sınıfı biraz 
+daha soyut ve daha generic bir yapıda olmasına dikkat edilmelidir.
+
+Bu katmanın en önemli özelliği, bu katman veritabanına direkt olarak entegre olan veritabanıyla direkt 
+konuşan katman olduğundan, kendisine gelen bilgileri veritabanına create,update,delete veya read işlemi 
+yapacağıdan, bu bilgileri direkt olarak doğru ve uygun kabul eder. Yani bu bilgilerin ilgili veritablosuna 
+yapısal olarak uygunluğunu inclemek gerekli validasyonları yapmak veri katmanının görevi değildir. Diğer 
+katmanlarda, veri katmanına bilgi ulaşana kadar gerekli validasyonlar yapılıp bilgi uygunluğu kontrol 
+edilmiş olması gerekir.
+
+Bu katmanın görevi veriyi ekleme, silme, güncelleme ve veritabanından çekme işlemidir. Bu katmanda bu 
+işlemlerden başka herhangi bir işlem yapılmamaktadır.
+

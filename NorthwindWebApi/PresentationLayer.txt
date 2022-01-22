@@ -1,0 +1,15 @@
+﻿Presentation Layer
+Kullanıcıyla direkt olarak etkileşimde bulunulan katman. Bu katman veri katmanının direkt olarak veri tabanıyla bağlantıda 
+olması gibi direkt olarak kullanıcıyla bağlantıdadır. Bu katman aracılığıyla kullanıcı tarafından girilen bilgiler alınır. 
+
+Sunum katmanı; Shared UI (User Interface) kodları, Code behind ve kullanıcıya bilgiyi göstermek için tasarımın(görselliğin)
+kullanılması gibi bileşenleri içerir. Normal şartlarda Burada hiçbir işlem yapılmaz. Yalnızca kullanıcıdan alınan istek 
+parametreleri iş katmanına iletilir. İşlem sonunda da iş katmanından gelen sonuçları kullanıcıya sunar.  
+doğrudan veriye erişimi yoktur ve iş mantığı ile ilgilenmez. 
+
+Üç katmanlı mimaride katmanların birbirileri arasında bir etkileşim olduğu gözükmektedir. 
+Önce veri katmanı (Data Layer) ile veriler veritabanından çekilir, iş katmanı (Business Layer) 
+ile bu verilerin uygunluğu sağlanır ve sunum katmanı (Presentation Layer) ile bir arayüz oluşturulup 
+kullanıcıya veriler gösterilir. Bu işlem tam tersi yönde de yapılabilir, yani kullanıcı arayüz vasıtasıyla 
+veri girişi yapar (Sunum katmanı), girilen veri veritabanına uygun hale getirilir (İş katmanı) ve 
+son olarak veri tabanına aktarılır (Veri katmanı).
