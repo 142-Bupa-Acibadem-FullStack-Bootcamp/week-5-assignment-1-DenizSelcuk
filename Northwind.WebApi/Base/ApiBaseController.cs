@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Entity.Base;
 using Northwind.Entity.IBase;
@@ -12,8 +13,8 @@ namespace Northwind.WebApi.Base
 {
     [Route("api/[controller]")]
     [ApiController]
-    
-    public class ApiBaseController<TInterface, T, TDto> : ControllerBase where TInterface : IGenericService<T, TDto> where T : EntityBase where TDto : DtoBase
+    //[Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+    public class ApiBaseController<TInterface, T, TDto> : ControllerBase where TInterface : IGenericService<T, TDto> where T:EntityBase where TDto : DtoBase
     {
         private readonly TInterface service;
 
@@ -27,7 +28,7 @@ namespace Northwind.WebApi.Base
         {
             try
             {
-                var entity = service.Find(id);
+                var entity=  service.Find(id);
 
                 return entity;
             }

@@ -33,10 +33,9 @@ namespace Northwind.Bll.Base
         {
             try
             {
-                var resolvedResult = "";
+                //var resolvedResult = "";
                 var TResult = repository.Add(ObjectMapper.Mapper.Map<T>(item));
-                resolvedResult = String.Join(',', TResult.GetType().GetProperties().Select(x => $" - {x.Name} : {x.GetValue(TResult) ?? ""} - "));
-
+                
                 if (saveChanges)
                     Save();
 
@@ -78,8 +77,8 @@ namespace Northwind.Bll.Base
             try
             {
                 repository.Delete(id);
-
-                if (saveChanges) Save();
+                if (saveChanges) 
+                    Save();
 
                 return new Response<bool>
                 {
@@ -128,7 +127,6 @@ namespace Northwind.Bll.Base
                 };
             }
         }
-
         public IResponse<List<TDto>> GetAll()
         {
             try
@@ -154,7 +152,6 @@ namespace Northwind.Bll.Base
                     Data = null
                 };
             }
-
         }
 
         public IResponse<List<TDto>> GetAll(Expression<Func<T, bool>> expression)
@@ -166,8 +163,8 @@ namespace Northwind.Bll.Base
 
                 var response = new Response<List<TDto>>
                 {
-                    Message = "Success",
                     StatusCode = StatusCodes.Status200OK,
+                    Message = "Success",
                     Data = dtoList
                 };
 
@@ -177,8 +174,8 @@ namespace Northwind.Bll.Base
             {
                 return new Response<List<TDto>>
                 {
-                    Message = $"Error:{ex.Message}",
                     StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = $"Error:{ex.Message}",
                     Data = null
                 };
             }
@@ -199,8 +196,7 @@ namespace Northwind.Bll.Base
         {
             throw new NotImplementedException();
         }
-
-        public void Save()
+                public void Save()
         {
             unitOfWork.SaveChanges();
         }
